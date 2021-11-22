@@ -1,0 +1,477 @@
+<!-- This file, related code, assets, styling and indicia are Copyright (c) Friv.com 2006-2021. Unauthorised reproduction is prohibited. Friv is a registered trademark. All rights reserved. -->
+
+<!DOCTYPE html>
+<html lang=en>
+
+
+<!-- Mirrored from www.friv.com/z/eastereggs/cylinders/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Nov 2021 23:03:03 GMT -->
+<meta charset=utf-8>
+<meta content="Welcome to this little Friv Easter Egg ...made up in the old skool cracktro style! Enjoy!" name=description>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="noindex,nofollow" name=robots>
+<script async src="../../assets/scripts/consent.js"></script>
+
+<script async src="../../../../www.googletagmanager.com/gtag/jsfc4b?id=UA-124684579-8"></script>
+
+<title>Friv® | Friv Cylinders Cracktro Hacktro!</title>
+
+<style>
+
+    @font-face {
+            font-family: frivFont;
+            /* font-display: swap;  was auto */
+            src: url(../../assets/fonts/frivFont.woff);
+        }
+    
+    body,html{
+        font-family: frivFont, arial, helvetica, sans-serif;
+        padding:0;margin:0;width:100%;height:100%;overflow:hidden;background: linear-gradient(90deg, black, #030, black);}
+    
+    canvas{width:100%;height:100%;display:none;}
+    
+#bottom1, #bottom2 {
+background : rgba(255, 255, 255, 0.1);
+position : fixed;
+height : 5vmin;
+left : 0;
+right : 0;
+bottom : 0;
+}
+#bottom2 {
+height : 5.3vmin;
+}
+
+/* cross-browser-full-screen-compatibility */
+:-moz-full-screen #logoCover{display:block}
+:-webkit-full-screen #logoCover{display:block}
+:-ms-fullscreen #logoCover{display:block} 
+:fullscreen #logoCover{display:block}
+
+
+			#bottomShade{
+				position:absolute;
+				height:20vmin;
+				width:100%;
+				bottom:-25vmin;
+                user-select:none;
+                overflow:hidden;
+                border-top: 1vw solid rgba(0,255,0,0.3);
+				background-color:rgba(0,0,0,0.0);
+				animation:bottomShade 50s 2s linear forwards paused;
+			}
+					@keyframes bottomShade{ 
+						0%{background-color:rgba(0,0,0,0.0);} 
+						2%{bottom:0;background-color:rgba(0,0,0,0.5);}
+						98%{bottom:0;background-color:rgba(0,0,0,0.5);}
+						100%{bottom:-25vmin;background-color:rgba(0,0,0,0.0);}
+					}
+
+			#scroller{
+				position:absolute;
+				/* overflow:hidden;white-space:nowrap; */
+                user-select:none;
+                -moz-user-select:none;
+                text-align: center;
+                /* line-height: 6vw; */
+				bottom:-20vh;
+				width:90%;
+                height:100%;
+                left:5%;
+				color: #fff;
+                text-shadow: 0 0 0.1vw #fff, 0 0 0.2vw #fff, 0 0 0.3vw #fff, 0 0 0.4vw rgba(255,255,255,0.2), 0 0 0.5vw rgba(255,255,255,0.2), 0 0 0.6vw rgba(255,255,255,0.2), 0 0 0.7vw rgba(255,255,255,0.2), 0 0 0.8vw rgba(255,255,255,0.2);
+                font-size:5vmin;
+				animation:scroller 50s 2s linear forwards paused;
+			}
+			@keyframes scroller{ 
+				from{bottom:-20vh;}
+				to{bottom:120vh;}
+			}
+
+			#tuneName{
+				position:absolute;
+				user-select:none;
+                -moz-user-select:none;
+                color:#fff;
+				left:0;
+				top: 20vmin;
+                min-width: 30vmin;
+                text-align: center;
+				opacity:0;
+				overflow:hidden;
+                white-space:nowrap;
+                user-select:none;
+				letter-spacing:0.15vmin;
+                font-size:2.5vmin;
+				animation:tuneName 50s 3s linear forwards paused;
+			}
+			@keyframes tuneName{ 
+				0%{opacity:0;} 
+				5%{opacity:1;}
+				95%{opacity:1;} 
+				100%{opacity:0;}
+    }
+    
+
+    #logo {
+        z-index:4;
+        cursor:pointer;
+        width:30vmin;
+        position:absolute;
+        left:-30vw;
+        top:0;
+        animation:logo 2s 1s ease-out forwards paused}
+    
+    @keyframes logo{
+	from{left:-30vw}
+	to{left:0}
+    }
+    
+    #logoCover {z-index:5;
+        cursor:pointer;
+        width:16vw;
+        height:12vw;
+        position:absolute;
+        left:0;
+        top:0;
+        display:none;
+    }
+    
+    #overlay {
+        z-index: 100;
+        width: 100%;
+        background-color:rgba(0,0,0,0.5);
+        text-align: center;
+        letter-spacing: 0.5vw;
+        color:lime;
+        font-size: 5vmin;
+        text-shadow: 0 0 1vw #000, 0 0 2vw #000, 0 0 3vw #000;
+        position: absolute;
+        left:0;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor:pointer;
+        animation:overlay 1s ease-in forwards paused;
+}
+    
+    @keyframes overlay{ 
+				0%{top:50vh} 
+				100%{top:110vh}
+    }
+    
+    #hackScreen {
+        color: lime;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 3vmin;
+    }
+
+</style>
+
+
+<div id=overlay onclick="startHack()"><br>&#x1f600; - click to start hack - &#x1f609;<br>&nbsp;</div>
+<div id=hackScreen></div>
+<img alt=Friv src=assets/friv-rgb-logo-min.svg id=logo>
+<div id=logoCover></div>
+<div id="bottomShade">
+    <div id="scroller">Hacker alert!<br><br>You have penetrated the Friv HQ mainframe games database!<br><br>Each cylinder is a top-secret new game!<br><br><br><br>Seriously though, well done for finding this little Easter Egg.<br><br>Click the logo to toggle full-screen glory.<br><br>Visit each day for a new chiptune!<br><br><br>-x- happy gaming! -x-</div>
+</div>
+
+<div id="tuneName">xxx</div>
+
+<canvas id=c></canvas>
+<script id=dir-color-vs type=notjs>attribute vec4 a_position;attribute vec3 a_normal;uniform mat4 u_world;uniform mat4 u_worldInverseTranspose;uniform mat4 u_viewProjection;varying vec3 v_normal;void main(){v_normal=(u_worldInverseTranspose*vec4(a_normal,0)).xyz;gl_Position=u_viewProjection*u_world*a_position;}</script>
+<script id=dir-color-fs type=notjs>precision mediump float;varying vec3 v_normal;uniform vec3 u_lightDir;uniform vec4 u_color;uniform float u_lightMix;void main(){float light=dot(normalize(v_normal),u_lightDir)*.5+.5;gl_FragColor=vec4(u_color.xyz*mix(1.0,light,u_lightMix),1);}</script>
+<script src=assets/require.js data-main=assets/tween.js> </script> <script src=assets/beepboxMin.js> </script> <script>
+    var tunes = [
+["5sbk4l00e0ftaa7g0fj7i0r1w1100f0000d1110c0000h0000v2200o3320b4z8Ql6hkpUsiczhkp5hDxN8Od5hAl6u74z8Ql6hkpUsp24ZFzzQ1E39kxIceEtoV8s66138l1S0L1u2139l1H39McyaeOgKA0TxAU213jj0NM4x8i0o0c86ywz7keUtVxQk1E3hi6OEcB8Atl0q0Qmm6eCexg6wd50oczkhO8VcsEeAc26gG3E1q2U406hG3i6jw94ksf8i5Uo0dZY26kHHzxp2gAgM0o4d516ej7uegceGwd0q84czm6yj8Xa0Q1EIIctcvq0Q1EE3ihE8W1OgV8s46Icxk7o24110w0OdgqMOk392OEWhS1ANQQ4toUctBpzRxx1M0WNSk1I3ANMEXwS3I79xSzJ7q6QtEXgw0", "Mr. Mario Fanboy"],
+
+        ["5sbk3l00e0ftba7g0fj7i0r1w8341f0000d1111c0000h6010v0000o3210blDwid5pU4zg005lD4zgid14z4ich8N4z8yky8N4k4hgp24MFDRiPfDcGGCCDplATCl9xThg39GMIBIzoHkCe5pBkUahSgYGHaHaAZkM6L4BhHTTCLtmptWyyCe4652FFsuFV4xjvpifrv9RQRRzIj3yz8IG3hjfW1kMWVoyv6O74RQzYtj8nOug74IwdgoZz2fvgo_-oLLA-2uzcIIIw974Rc-1FxM30Iw6g78EO4NU3Nczk673Kkp6M7yV6LbJN2TfIAgkNe30Fwjji2A5MagpgqsCCA58awkwR4Gyl9aABOjbphAwE1g2w783nAQQwF1m2A6k6D9FFEE0Cpf99l4Gil8HMk00", "chip19"],
+
+        ["5sbkal00e0ftba7g0fj7i0r1w8151f0010d0011c0010h0060v0000o3310b4x8i5h8id3o0018OhkoldzgQd3ki4x8i00kj528y8ygp25uFzAdkFlllll0QRRllllrqqWGGGGHaqWGGGGIhQRTRlgZkgkRN7llplJFHJGGyaGSCS-GSOH2kRRllllaqvC1XOWXbGGHWHWrbGHrayCvaqeECe3IU5BFGYQSfKKC6b0FFYZr0SniszjlRCpjbkJJHPGlcKcszUnGWC0UDGA5B-docFGZWPtkQKf6HDGHqo6haouwjbw50cw2pYoa3o1g381A0Vgcw50cw6g3b1A0E1A0O0kSfJdyX1H1BYAOub1N0a0p0eoOMr0a0p0cw1j4Ud9dc2gp0qgSAtgqwF0i3tOdEdgqgV8dE6RJ0V0qiuO383i6Ac06nwwQ1E3A0E1hh90CLeKIJ0", "chip18"],
+
+        ["5sbk9l00e0ft8a7g0fjfi0r1w8651f0000d0111c2000h6060v0001o3410b2cxgz8k8O52cxg0008xAmByyCexaCb28p2CewFzE8gxgx2ogx66coMp2dQFEUWoZ9DOFNBNqosR9FOnaaD67dpcTO2C763vMPvY9Y8TMCFjhxAKpHIZvAZjR0nkRtnPRlvHcgW1kNVYNjnzoJaIswA83dyGE3cKNMlm1Cf-SDencY3yG1NUUaX1MgrpNN83ceGTcHK3npI42K1FNzTtwWGws9c5FNDEc086q6yM0R5wqsUYjjc-qqqfsAM8_aqHPDuPt1hdtJcec4uYTqYqpstA2utZLg91nttM9113RTls2L0HMiYAMmrpJlSD67twVd0VLcYs68zUaLnv6rKc90O3-Y_XLW17g1yEY8frPnfzzZt3ue6hMx514c2gh3UaXdCGXy2UwK8by2KXtL-h8aXJS27K8aXJS_TIerGUfx_Pi2OYk2Qa3UvYQwILfHXx0xgIQwJP5gZ3J3Ufd8bsJed3By1YaFCvj4QUOVDKqGP6L6FSPdRqsUWSwWgI06pt3RSPkIQ6bzwGI7xTGoWR0qaa0QnQ1xGhQom23j1R1GGE3hhg5j3zZyUbg6yyyK1EE3hgC756gDf2_aEAGbZyyKzdjfn3LQrtqD6n5lhfLp_i2I0qnuNUan0DxjblQ-ZzU8v3qCBNGthWr7Ncfidt0qaa0ZmNP3wTb07OGzgqcyz1VzHE32QzEC6Gywd56hhA9PNokSfixtY9BrqquJpDkOOJcd5cZbkZgR6kFHKXSZGe_LqzamkGspsjUqe0Rcuc8faSs_0IBCzUhFzMFxNNaqf7gq_6s3wGuEElPXQZr8ld7qMwxAqCBNGiCDMCKke7x8aoD1J7ji6Add8qagQM95igF1iaAl8ahk0F5OgQQVwcyGOIdlem38GOGeg627DwOgVga0p8sMmi6oWYGzdKM2zaKEQ1EL9Vd5B6thBklk9Cs00", "chip17"],
+
+        ["5sbk8l00e0ftba7g0fj7i0r0w4251f3010d1111c0000h0000v0000o3210b0180018id3g0018j4xci4N8i4x8i4x8i8y8y8Ngk51cp23gFzApaM5xngiI1mC7d0bG27cN5cKtPtSt1SZDrHFTreTKq8FzNPKhhhN94aoYAF44wlQ4GMg99j3D7TC4H0m2pxNZAwj3Cw8ao-wE511GaW0k2x0S3AQMXPg0mg24xi0w2o6p8q0XkxO0rm00OYM5D40QxF3i6A5t8sI284pR54LKxJOac_8Ej8_PZxS0slAxE3Ji781JpocLa1u0", "chip16"],
+        ["5sbk7l00e0ft7a7g0fj7i0r1w2641f0250d1111c0000h0060v0000o3210b00wid18QlRpmu5pU4zgid18g4x8Qd3gQ8ygy8N4k8ycp26sxj3A2ps0O0k0Agp0cw6g34wk0E0Cf4ei3o1wga0r2CxNThu7s1N0cM74o03o1C0pzV8sj1N6o38xPgsawO0kwTBd7z58O6QC174nRdjz8FjhUjjO2iZjmCveltNej8FHYzYTNqqLwut1g2w4RasoX5mk2w554aqe4CDR1itcu4PMGu4kSfPP5JY3U2kUOMAeHQ1jouPm65d4Zdc3wFfP2Cm05RcyCOCuoJLwuxasp0i7lW1PJcu0Qkk1EEx0QkiEkMU1g3wgqab0Qkm1Ejbw6Nhg2w78HSAPWPp6KWDaMb9V-lARRgyqfR6jGokMe1jh82H5maw5t5oGMl2G1j4J86M90g2A74wOgp8cw74Yi3o1i3ygp8cA6g2oQMr1g2U50bwk0JJFFCft1hh80E1vhhCpt500", "chip15"],
+
+        ["5sbk9l00e0ft7a7g0fj7i0r1w1351f1130d1011c0200h0600v0000o3210bu7wQd3hA5h80218i4x8i4x0g4x8Qd3gM4h8h4hci4h8p24_FIu70kR-Rece9j7HpNwQ2ut8TnnMdtk3j0OIDjp9oBAF6GhGAkMQF79JxICX9AWrf4shKErbcZy6GpspuFN4z9Mdtk3j0OIDjp9puy2I8R1EAkPR2ce3Mk26Evsi6s7b1h8V8kVWaGr7P1ldyUQcO0jeC70a0apZYtj7yEdd8qqqoA3ji6CDj4EqqgQQQNe6CAddeAd0q0Qid8qaqkVMJOwUcd5t8q0QkQxEws8pFAao70i0A2840E1J0T0r0a0rodw6k381I0E1IwQ0791C0S0k0kMib9YhMxjjNejAwj42EYo2I59aw58ail0ai00", "chip14"],
+        ["5sbk7l00e0ftaa7g0fj7i0r1w1521f0000d1111c0000h0060v0000o3210b000Qd8u44xki4zgR4x8i4w054xsi5zgQcP8h514k4h8p255FzBdypWgYhFFAVehFOwRecJ4ftTIZjgUVDaxaQMVHUDrTr0KrLs3oCzEBv7lsTrNJ8lcZcIvHZSKdPeVDaJHkPXVq5dHd9V4Dj73jbE6jwocDa1AVgagi8ejBwOsI6jB0Olecsc06U3skUMQKVOCvfu6fa3hnjfCwLRT0WM76ZtRdzecoFDzxE3hk6wzG3g6y130RxOOo-VejAOenAVejBI_9OsC1MwNqTeARfffaI3EdosE6wd5oqQYuZVxLkNe6C1EcMdmggO0QxOMmwTAG1k0E1yaC61Svltl0r574iemaABgaABcujC0E1jhi2w5t5Jo0", "chip13"],
+
+
+        ["5sbk7l00e0ft7a7g0fj7i0r0w4831f0040d1111c2000h0660v0000o3210b4zhmu18QlDw000004zgid18k4xgi518g4hgh4O8y8ycp266FzM1cKciOkQJ0mMC7f0gshBVaqDgdzyu0wUzbOld7HgI6NNDzrpjkuG8Y8u0-9RbqOBs-cZ2ZHqOu0Vv4XePwaCv7r23sTIkPcXBU7AVuqD6bugFNzOBM3IUzCVaD663unXLB6Kk-0IjlUQv7P22CLxO60GSGW76zF8RdrzOQOUj7NcecD8Qcapql2oY9xNA9NM3N56NN6NwqdzoSaJzokUNQ9Oaa7yGe8SdzpQtj7zAfoSGrF7NCM2w6M2zf1g381hg7D0O0V0cwek381hg6yyzA0E1A0EE1R5r0a0r0ae8Rh3IXePJX_c_IrldZZc3xM5gqgR3FG3i6C9g4wc1J9wS3dTgYq3d1KYq3sR05YLs2yQ55l55J56IttgqgR3FG3rrq0", "chip12"],
+
+        ["5sbkal00e0ft7a7g0fj7i0r1w1561f0110d1311c0000h0060v0000o4210b430id5pU4zg00N4h8y8h4kh24h8Pdh4ih494gzoR4hkp26MFzxOcz9QRlzEEkQudd0nawo2CSKBcesw552CBNShxVltZYxjkDfd1OG4Rs7CQnQQnkFBM38W85cLf1GCLMHBNFZWCDZS5zz7zjQ9Hk-NQ22w5aq7aD6FwnkUMQsYIJLHHHGGFFFAqkX-lFzxOdZlllkBn8mllllkXaHGGGGGqH8iGGGCCqoxAFaKU5cZpcsxOsD9wY8cD9FFVgsId0q0R9xW393g38EERQgJBl5lll5lll5llJ43tlhlllhlllhllTtP9OkOV1KrSjAOZd1LUkUOU8Nj1U2o60E1g3a1AwE1g3a1AwE1g3a1AwE1g3k201k2UFg2w58a0l0E1nhhhj4xcPdA5B97o7A0F1iaw7y0px3b1AAcE6igOxk0G1SdAl8aWiewEwhhDV568p56pAko3hn8ueUYl8bqiegf81i2Al00", "chip11"],
+        ["5sbk8l00e0ft8a7g0fj7i0r1w1151f0010d0111c0000h0600v0000o3210b00000193lBw0118j4xci5h8i4x8i4zgRllch4h4hlxcp25XFzAJBdddcDjagtdddcFjLjfK0kUMMfTRedwQG7UW1F3IoF0RgvfAGqkMVFPWqsCD4qqp79FkMUVodyCDB5Q38WF6GiqRd7DJBjb8V2hB4XSgMGqfaD6xx09zE9DwRls8ZhTGRecfJQdnzmVQGDz8tD0sNjzb10jjXSWlcKKlFHPwYNj4XoTcPHKjjbayCe7hhhghAWaaa2eGyyywt2oskk81NIkgd52s-PP8xFFFGJUjwsG8aoyFJwEb0OZdd5dRmlhAN3jt4leVf9HFFdejgFysA92p4wSgV8cgj0SDaOwlwE1BkKg2I58Ah0q-pFUBC8xmlljIsMA16hA8YYBN6q2Q50ayl0J8a0pKm2w50cDe1g2w6jy0aaGqYKM", "chip10"],
+
+        ["5sbk7l00e0ft7a7g0fj7i0r1w0141f3010d1111c0000h0000v0000o3310b4x801N8ld3o00N8i4x8i518i4xci4Ql64h0h4Ah2h48p25CFDT8OkBbglZChj7D9jhQsKPd3QxHj35LFFjDyqkKoUSWCBCvLcMZPGe8YyVmjAWBll1nnTidlqC77eX5OCn795VHqkQeek4RN4DUHyYD9XGGG2jn_7dv4QapUwqwFzwQVgp8e2msIdwkMWHSleed6VPbqrGmo-tDjnNoa0plnB7bOsDtGGHlUQKZjicokPZbMhuCnh218lA94xH8aVYttwoCf5555yD670TctHfOsD9FLMr9y9eu0IKXaqgperBlO-46jljhjjTXT0rCo-PDlkP3R7YMkNej0wlEcIu80OY01obcPgnwP9l82Mk0E0A9574kkksnhrqQYg2w50cLysztEOtL8OcLsEJEO0", "chip9"],
+
+        ["5sbk6l00e0ft7a7g0hjdi0r1w1241f0110d1111c0010h0660v0000o3210bs2oUihgBcA404x8i4x8j4x808y8y8w4jh4g0114h4Q8B8y80p27KFzRlh9idBaKf6624Cvtt8uNjply4DCmpRKllpD_ioskr478RGsooo6nt8YPAUzkURcf-k0k0I1hvhhjvhhtjhhjvhhWXIyzC8aSLEc3bcdjbo2P7MaCyWhAqv07L2QN5akQuar6goWKfeKnFxX-CDR8aqT7ZapsocSqv13oeQRKfhJqpsv3QIT3fBj7yxcYddfhM6T4KXhGyqe6HGso_nNRZlce0k0OgRAqMTxLjNOmKIwdz81Aoy38O0p680Ocw6hAwOcw6hOwp6g38Ogp6g38Owp6g38M86hA0Oem38O0p6m38O0p6m38O0p6g38O0pg1j7GCCyGSCy5C6Cy2C2Czu6yyUd55Eqabaaa9zjUZwTCN1jht45d5YgkQgiop3hAQw1j0Ul8Ggk0F5iaAl8a0kwF1E10wG1i2G0F1m2I5gb0lwJ1nri2KyCzgaAl8a0kyF9kkkklkkkjf0wE180K1r8STjeC9R60kkkpRATSpJ00", "chip8"],
+
+["5sbkbl0fe03t8m1a7g0rjvi3r1w3311222100010111f0000333011400000d1111110110111111c0000000021200000h0600000056600000v0000212011102400o3410b1234564456478797879abacabac11234564789abcdebcdefghifghi11234545454567896789abcdabcd11234445666788888888888888881p2fRapo46Ce7BlpmllBll9xRjl8DgE7tJw8eHcwsKO0wV4EJp22tFVyWjJKAHrarqHrrrrarqHrrrrarqHrrrr3jrlrrrrpjrlrrrrpjrlrrrrpjrlrrrr163FGxVaKOOCGGOOKOO4HAqV2CGO3Ap2hIAXHPlalQRQMcBl9OdcBl8QN1r1QMlc39litZcBl8QC8boeC2FwpaGjLFAGF6C89m4FwGoalGFKFUOQVQDljnjv8RnnQOlkzj3itdc5j0TRkSQTRnQw00000000000FDEQkkkk9zMC75c1jl8D0qaabaaa82yyy1EEEabmgig2wGUUg5kkkkkkke4EEEA96OUOd555d551JEEEJEEEdJ5555559GEEEwqaa3jhhhhhhhurEEEEEEEEEEEwWaaaqaaaaaaaaaaaqaabjhhhhhhhhhhhphhh8QkkkkkklQkkkkkk6yKSCSCShGAF6CiGAqowJwWoaC1AGFe-CiGAqj45I7j1kMcBl9TQOlkzj3itdc5j0TRkSQTRnQw000000005dMUwaoU55541hhh0kkkgd551hqO5gQAa6FxxbY2FxPjnjJrePjljGCZIQSQXmPIQRkLkJ_pFwGtHpSqqGtHpSqqGtHpSqqGrlhhhhhhhhhhhhhhh9kkkkkkkkkkkkkkkmiEEEEEEEEEEEEEEEwqaaaaaaaaaaaaaablhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhho6yyyyyyyyyyyyyyyGyyyyyyyyyyyyyyw000000000005ci0Q1E3g6wd0q0Q1asAE9w00K1i3bLa1m2A6nuk2I58cKYE5oagct19822i842k3zMjQDNd6rAQpmjhBpd6lAQpmjhBpd6lAQ7aOqcH9EOICzaOqcD9EOsCxc6qaaaaaeEdk3JQpt6jBQlVl6nhAQptulhBQpenhnBkpt6jgsKLaEOWcDbEHOGcKz9EOqWaqqe9jwzGpY9D9D9D9AXEqKbEOaqqqwQVl6hjji000000000000", "chip1"],
+
+        ["5sbk3l00e0ft7a7g0fj7i0r1w1361f0040d1111c0000h0060v0000o3200b000ldx8Q4zgi4x8i4x8Qd0si4xoi4zgQgN4h4O8B8ykp26hFzwFxNhAkOgqIyz8GGOqcy-iHRp56g78EOcyz0HrlceeHObdyz8jDwzV6NhAicA6H8EOaGICz8AVaLlAkp0syz8Oac2kUMMePGXbtyxj7DwuCKdhDRzHjLVoFHUyoYiiqu3B9xOCnePjfiVJjbzDe8UL9OtSrjzmU8eUyVQUQc0yo-PCoU15UQPbGKaSnMk71gnswoCQUOR2834IKXTQwFzwQ1E3hg6Cwd0qa0XG0Q1EE30Q1E3hg7n48qqqqgSn1FFFF3JK3jjhi6W80QQQk9PMgATFTxdaC1MG1kyF5gaA5B5g5cgewpd5ci0Q1jASwO5xO0RrB6kFy3lAt21i3eN02g40E0y10a0k4JyyyzzXuqbo5N0IwmMb85I2E5UAd0uGQHPBI103EFGH0", "chip7"],
+
+        ["5sbk8l00e0ft7a7g0fj7i0r0w1341f0540d0111c0010h0020v0000o3210b001lpx8Q4zgz4h4g4hch4N4h4h4h4icz008PczcQ4h4p24KFBxR9zwU2P3GkQcfujfHAmYEXejLFB89xMC4DhhUCLDeFMfqji-GoYt2r70ejSzF1JYxu_GFLIF8P1tjprj1knTkgeSCGO1G8M5BJlqoSA2CnqoY9xHq3IrCyX6HXCNJQQegkwG1k3g2E5gcS1FKKF1jb9kNUj3ot5SdmTJztTJztTkQTQRnOZc3jbgQMkTQRgAMkOldeSCCy2GxpwFEwFwxFwFEwGEioaq8uA5c3wM8bGwR1F3iA1mhk38OYWGoIHaGOIGHaOGKg6Md8qgQxF3i6IeAdgqgQxF3i6D8EM3cJ0", "chip20"],
+
+        ["5sbkal00e0ft8a7g0fj7i0r1w8161f0120d1011c0000h6610v0000o3210bm6tDp1cj4x801h8i4x8Qd18i4xki5h8l8ygh5h4l4hkp24_FBAtsBiCfk5DaosYRAieXvOqHEbbJBbGYoohc_aCBNSg5Yxe-9VFceaarevIAqaaqVmwQQio7aVBir60YSC9nG-bULyWoUs71P7p1FDFMaC778uN1nS9xVpPEa2FHwFiO3UCHkqtG5TRpJebVIBAOm0QXf4xYhM51kQVCppPI5AICD1bcCkPaqofyqIhFxWZCoQ1WEgfyywkQc44I1jbz_4SfCCzwSFDWC704Q-4NRWqipWty8qqqqsCEkNe2C02aw4w2YloGNk0IEL1BW0VwGhmyOgVgGhl2sAeqawlhCSyE5gaOSKSwBu2010SSSw", "chip21"],
+
+        ["5sbk8l00e0ft7a7g0fj7i0r1w5161f0010d0111c0000h0020v0000o3210b4z8icAlB4z80118Otmwicx8O4z95pklB8y8h4jcR4h4p25tFBT9FzFSkRgaqvBn8AarQPQGp2K2M6CFzNGlONXkzjqC630FE_tjNujVyDsJFG3motcxj8OhzxE6DRZqNXkzior-0OFBNx4aoX99lMdQ4CDZ9syGCiK2C75RRt5I1vwBapZptDzsGWGHdAFvxeTuocueQkT3aSkSIVcMemFHCtVvTnv_j3Q50a09IKCCDRjotdcsnpwGp-rLcYrWGWCCCDyXGqaqqupILV-M38O0r6AJJk5l1Rllq53trt3jbA50edE34d0RceJzaBcKe9ao7k0EwhkQ0EF5jg2yAlc1jvi2I6El96CAl8Gi58a0kwCK25g99Fym6z0wk0E1vhhhrhhhnhhg0", "-measure twice"],
+        ["5sbkbl00e0ft9a7g0fj7i0r1w4681f0110d1301c0200h0000v0000o3210blDwid18QlDw00005ozgid5pU4zgid18Q4hgh4i8y8ygp25yAkNQ0Ql3Cey1w2csg1jb31AzAwE3MC7ga0k2zjfMcC7we1wHaqqGElcKcg9j3zom8eN1grcuQoawYOhxQ2wd50qa0Qkt1ksgN1wVxRewd50qa0QkrJ6T8rxotOwcBg6hE3lhJkX4xFnxQ6weg3j8qhap3igkPGR6l8qm2CUeiFxwQQT3QczmtnDlVQZ2wG3nIioUBBdBdL-PWiCegP31SlRRRRRRRRRRRWWUa1HHHHHHHHHHHHMkH0RRRRRRRRRRRRRXHHEaKKKKKKKKKKKL2P0C91JVJKgru2OSgrumKeHw1w1w1w1SCKh2C1NyEc4aoA4rs01jt80P0V0bwpwQMVgGNm2H1hthg0", "-balloons"],
+
+        ["5sbk8l00e0ftba7g0fj7i0r1w1511f1030d3211c0000h0000v0000o3210blDwid18QlDwi4x8ld3gQd18i4xkQd3gQ4h4h4O8y8ycp24oFHUGqe05cY4DwqhFzGMtI3pBi8sgi4Dq6OQzwqNUA6Ieha3VMoeAdJwsYLOwN38OczuFEsqdp6GAqotwEFOsY6Oe2IF3jjk7sewd0oa0TcQDjf84NU8Q1Nb8aYkO0INU36CzwX0W0Qmp-aVfcxVCtzzlIDygQtUvyp3j_5kcQvNYDCsCCDCp1J5cskd1mi3glOoq2I06wHjfL871g8sT87nm7CV0U223DV0XHwxj0UBqiA2lpaC9ug2w50cLf1D1JO0k0E1CVocIcNSp0a19C0k0", "-retraction"],
+
+        ["5sbk5l00e0ft9a7g0fj7i0r1w8211f1440d1121c2000h6060v0112o3210b000igNl64AcQd3gQ4x8Qd18i4x8i4zgQ008h4jcO4h4p25dFDODezaqf2tY8FIvDpwFdcvsSDBMdRdnnpQzjDQSRcefyfo3Iox9Uzjbsrd-NhdIBg4FIuJ1WF2CvGo-OgsEd431i78OGYgAkQvZGXuK2C72gkkkp6hhhAp556hAkkoHAkkp6hhhAp556hAkks2Oaacz8EEOcyyz8Oaac_8EEOcyyz8Oaacz8EEVuvhhAVd56jAQkpejhhColkkpejhhAVd56jAQksTcwUfbOWWYLbHHOYKKLfMa1wYLbHHOYKKLbOWWMFysC1J6jAQpejhAVJ6jw56jBSpmlnBpB6Ul0G1k2KEF18kg092y018nO4xO2dUsAmghF3Ay0", "-comfort food"],
+
+        ["5sbk8l00e0ftaa7g0fj7i0r1w0141f1110d1131c0000h0660v0100o3210b0000018id3g0018i4x8i4x8i4x8i4x8j4h8h4x4i4hcp23eFIogaqoDTM5cPa4N0qqWqp-9whgCf0qcyz8SwV50WaCLSoRcNNYQbEaGgAoaA8kNVEEEE32xEH3g6Mcdtk30SkxE3i62IJ21jbQ2oZp8cy9aIE6jAwO8zGVwcD91AmloK39Ns6hrlcum39OMp5tgao72J5iaA402Elga0kwE1ibiaAl8Ggl0gdTa1gywPATi5INMgG1k2IIII0", "-recycling1"],
+        ["5sbk7l00e0ftba7g0fj7i0r1w2851f0000d1011c0000h0600v0000o3210b000004cigN8id18Q4zgidjoSd3gQd18l00cy914h4hgp24FKoY1xGqff13BnqpYoI3OqL2oZQZlI5dfzaGKoOwgu8SsODbX5pN6llr6lushISntjOK8OqHoNf0KoVKAapUUq0QgaoUetwtk3FFwcXbAqsgkOUX5S0RnpCwHqqqMRis54dEqo2D3Ocz91I3tra1wrWr0XaXXMTxJcoFIuBlB8mCvoQMU1g38H7A0E1g2w7b7A1E3g3b7A0E1h4ddfqcvo6Cf0u81g3q7A0E1hljikNe2C18IAeib9Ogp0qgQVEekhE8Q4q0Vgawr2l1awBg2w50a0sIzA5IUd6nhjhg00", "-fricative"],
+
+        ["5sbkal00e0ft9a7g0fj7i0r0w8221f1240d3110c0000h6060v2011o4220b0000018j4Akid5pU4zhmu18j4Agi4N94014h5icz8Ogp248FHUte4jjRANZAKwMeGgVBBsB9TFE-n2CFzFBwVC1QNQkQ_4RKZ5j3zR7kozCQSzzaX6hNntr7HkQLuoTuEVzAp2svaZhR75Rdvk8OqoWiooI7CMtdlKptCmQRpf0HY3wGqF79LMe2FGOC1ge1MldlCplBSkRpzPoffJFGCn0U7ewWqwFwsmFbkN9M05McTa1u3cOwnwPcO-gLV-u2E6tB0K1CpgbMmg5Iw7DpMbOi85Qk90thhKQidAxtbXR56ZhhLknnnn0", "-house of the rising sun"],
+
+        ["5sbk9l00e0ft7a7g0fj7i0r1w2811f1010d1311c0000h0660v1011o3210b4h4C9jcP9ykh4i8ycPcPcN4h8y80cPcP0N4h5Rkk8ycp25dxj78yc2hwyc0e5dfLbAqFeSkkMUS4r8kPVO1BVtZJY7aikCP7a4IZc_pu1mpVpCxlr-v9GoY-RIiAB3U2snrl9TTP14OqeM5ccw9g1a29gd0a0kk0FFZFBSCxMCvrc-5-IE1g2yw5ctDyyiLKLAVa9bXHE6oEa21j353g6w50q0Q0E3g6w4EiFBPA1j7z83Ip0a0V6g2DgY0jf3SgYNMQF3j1u2C1MGxmyF1g2Al8Gwk0FAaXJwa0ggGMmwG1g2E5oaNkwE1n8mmNT2L5maIkwaY5082WSSeElMGOlEG0k0HJw83oaIBg2wxgiE4Ce11g2g1g2OyyxcPg", "-doro wat"],
+
+        ["5sbk5l00e0ftba7g0fj7i0r1w4011f0010d1111c0000h0660v0001o3210b001mu18Q4zg00004lDwid18Q4zgid18Q8ych514k4hgp256FzBdyqv8sjBgTl1IwHtkDAFDOC7dmp99EWnBaDaOGurPulashVLbMlJChpARmYMd0W2t1ns6wt1eiaWgQ3E9T5tEq1Q3E7g6ywddM-c3Aq3bEFDSCHGsG7HLBoxpF-Bf4owBoxwANS6NjhVXPyBaqvutkCzVS7REy2my2ny23JHFIIIFWG5ctawd0Wa0Q5orG0Q3EE3glxAG0Q3EE3glxwa0Q3EE3glIQ-O4tczEDpMWp7heQstczEDseeyhQjj4WCAdwq0QxE3k6Adc21k2whlyG5giE1g3gawlgGxl2E50yE180VlJ8r0Q1F3CTnwK1g1cOg", "-regulations"],
+
+        ["5sbkal00e0ft7a7g0fj7i0r1w3451f0120d1311c0000h0660v0000o2210b4zholx8Qm5o08i4xgQd3gO4x8i4x8kd3008h4h4kcPgp25CFzBxmwapYgeiCzZjjQZKkkNVXEfcrunDGsos5ldnnU--4UzGd2osg6PU9YTyuPbXbXWGHgQj31GUsoU8m0h10QRcKdE7OgZ1wOqgFTPiu_3mYRn4xVI6ji7MCHoEEGFEE1jsf2FIu1hpI_90Cv5aoUldCDSe5CvcxSe9jhVSqgFzFFxM2w6hA0E1Ap0cz81g38O0k0Ocw70Yw50cz81g38O0oBA0E1Ap0a0p6g3Boe2w6jAwE1Ap8cCW6BcM50cz81PI2KwMpunnm3bOgoNVg8k6hCwH1BV80Fysdc2gp0kP0cHq5htAV8cAcNRp8G0k2EH1pOYQ50IMuk383CyOwVd5d7aOMk8dl6vhLw", "-lapidary"],
+
+        ["5sbkal02e0dtba7g0fj7i0r1w8241f0110d1011c0000h6060v0000o3210b000000cx8i4000cx8i4x8g0x8i4x8i434BlmcPgPcNgp241IQsFjBgSq_iyo-lRSt6KNjqjRq2GIEdu3Dnli8apViCzHox1l9zQC7c1AWzUGGL9IQ79zNy3tal1jcwuPk2CeA5j7D8lYEc9i6Kk311L3K3wGCk6OAdsC6IdUoplce1p6gb8jfzeIEHwGgkN42d16wzghQ9wg2A50ahk0E1A1I3q7bwbrIw2w5EGhkyF1g2A50agcM8A6NKSWMk0kMlyOui2w6PBRWNlyF5iaA50agk0F5ib14G2kyaYlo904w2U0", "-partition"],
+
+["5sbk7l00e0ftba7g0fj7i0r1w8151f1000d3111c0000h6060v0000o3200b0000018Phms0018Q4zgid18Q4zgid18M4hoh5x4m8Qkp25FFIvBu8pxFGUW9Wqo_Y0YYdZdsBnli5ce0p0q0QowCC3wo61FMe2jhXTHZE2pZt9XGpcfkoHN8804K2A2quzVgWXHuKggXjHzRd7DxFhFzU6wd1BFxE0C42pYi8lced4v6bky50a0kku28d50U8d50U8d0sF9QzwqqhRxEFFOa0FzRgC7wb1cNQwhXwkws1AYoF80YZgEQy1a2K8pou1wpeRNfgqd71qai8poua1AXn4ZjEQx1obB8sqC77z6ogFwsiE9k4G2mwloGhlyF50yF5obiaM50agm0E5iaM50agm0E5F100J1g2E5Jt8Gwl0J1g2E5Jtddl4L02E5q2w50a0mSO4xK9k69cgbb5800", "-memorandum"],
+
+["4sbk8l0egtba7g0fj7i0r1w1621f4120d1111c0000h0060v1011o3210b1jBT1jBT____1j1j1j1j1jBT_X_V0302p26fzj77jDxxOaEeOO1KFGjfIcqouyS0V0c1KHIPrIOXpVJC0QxOGoaKFj3zJld7z8OiCBNyZN1mPjQY3MJTA3lljn8O74xXOPf7Qei6jSo70iuiUGD9SsCALkNVMRcyGKONdfGCv47n1MtcGftriCfiosQXJWKv6mDn9Arqua3ApCi7h9xE3tlwL0deExjfi9Q4U4uEDgjwNX2t1dcteCwf99Q3O0GossaaoZY0So_zsi5ce0k2E1gaw6g613g7E11IyE1gaw50G0r0o8d0ux4eOaw50G0k2E1I1AWrwWwV5550-E9FV_zkMe5q2w50agg8GhkyF1lnm2g19MgF0kwag580EEE1tvdq9L8wZtttR8l8a0k0F1iaAl8GwlwI4dx2w5MG1kyE5i2w58w", "-policy wonk"],
+
+        ["4sbkbl0egt6a7g0fj7i0r1w6581f4050d3001c0000h0060v0020o3320b11111jjjST111j1j-1117111___0299bp24CFDAI26waoyCgCeG6wd5jiUMWS99d74jlZIP-XyKJOo6HbwGqqrjiUMxIUzK4KxeG2CMWOooQCCDx9zyWB0FDPjhQtWHqULaSqutUh3WXw21QihGHFP97CvkW1vED4VePjBSKoZZwhcqo2x90e1sM2yyCeJ2Msb3lllSkRRSlllVu5wEm7GKIJFHJJG6SmlmgRlltBdttBllpcqosk87MCuACzWFysd46kg0dIzmhF2yb_4StIqccUy76M52uq2C10a0k0SXgZXTlALN8a0m4G1l0JECd1xW2egoGj4", "indexicality"],
+
+        ["4sbkbl0egt8a7g0fj7i0r1w1041f1010d0012c0000h0660v0000o3210bBT1jBT1j____1j1jBT1j1j1jrr121212p24hFzxnllgcF1lnlSllllkUaWGGKOKGSKWGKjHGSOs5ltvtltnpl1kRlUi-WGSjwqHVe-GGGGCCDPuCN-s-CGCCLSCvn5ubFOWq_ipUaqe0Ce3D9xRjM30qkOWIUPyuaHjjVZTTvdtnCtljM79HXKXx5dzM0FHY9DEFIu7jjMqqE3ND5snUOhPehpCsOCGTplBYOTcFwsaA2oAxO0l2F5m2A6hCSS2RyI1i2wlgGhl0FEE1nhnhCsIip09j91IQpt6vA0IJAbJ1yw2lh2E00", "showtime"],
+
+        ["4sbk8l0egtba7g0fj7i0r1w1021f0500d1113c0000h2660v0000o3210b11T_1111__1j1jBBjj111111-K9b9902p24KFzAEmoZodcgno3m637n81RxL7htDpgp0t550mrxAmFDAEq0QicyCezDxS1E3hpoFDTUxjbSzya0i0bKdJKHFFUGovllwlOVQJ7J-CJJwe8EEjgNeEEEMmNhg2yywl568p50aa0kk0EEEaoWMq0T1E30xE30xE3kMU-Qeg6wd0lece24em6wdEtN6AzshH8Xz3qhE8xj4UdM4M4191pKrYxD1K3y2hkXwtotEBCxG3B4IIdj13GSSKS--0w83o1i2GKOSWyyypWgkwL180Aaaa7oaG18oei7u5gawkRT0E1g2w0", "-boots on the ground"],
+
+        ["4sbk9l0egt7a7g0fj7i0r1w1601f4200d1111c0000h0060v0000o4210b0000asdT__11jjjj1111jjjj__01iisKp26ykPSi2yhcdehAF741V50aG0kQoqW0wU6CGKOhA96jA96BcuY1woiGGGGHaTeVg2yOw5t508e2FGKwtyyhAAOVUP1OdmFaV-6FGlVjwbaXrE60wU6CGKOSXmb0UaKOW0wGIPxBMC1U5AwQxJHwsz8N6iFjhYY1MiCn6wLN7m45csF2CuI5dfi9Uy6CHxzSyLz9jzshTatUfzKeFUPe3Naosk1j73wU8dllgpeG13llk79ll1GGG3rlk6GGEeGGS2HHHHKHJwGWWWZZts3nnnnalRMdtttokMe1kag1gaAlgaGawk0F5jlg2pXp2GCG-WWUlcjIAlgcweibaOGawk0OgVdlRSEBsiH9n4Jx2U51aMxs2wBI5u2w51aMk02w51bo201g2w512h1hhhh0kkkg410g5UabJ1yKcg", "-won't see"],
+        ["4sbkal0egt7a6g0fjfi1r1w12231811f43030300d11111111c00000000h00606600v00000000o3210btTs45hkidzpT00004h8PcM0000004zcTh00000034h8p25SkPQqpa6kOUQlANUH3oSMdRtBaool61MiC76IJIkXMsW7soo62IJ8N4eAeltVRRRBJe1ko70WIJIkXMsW7um6GK5VTK8FT7dwrqXGorxezdLNmDe3tOdI5npj2UDhCTUHjD1K000kNMa0Ot0o6wd0qW0IgQit0kVX7Oa0Qgd50mOyOwPZd5d0sPcywd5B50g0005ct6wcDg60E3g61E2RN26O73r3xjDCgU2P7-gKvu6-YaovwL9n0L5VZUrXMTTxUCgV_7O40001j0U5Eah9y0xOhl2F5i9FwagnwE1nti2E50bAwaOgmTQwJLIJkPfcutrrrrvvuQ0H1i3zq4g0wk0E1P0a087Mw6x8i4wZsiL9kyF5g80000", "week"],
+
+        ["4sbkbl0egtba7g0fj7i0r1w8151f1140d1111c0000h0060v0000o4210bSS07cbii1412_r140000999f0002999fp23RFDzFHWqqugrBuo861KKjhMHWoZidc6P7xj0rwOQNkMdL2unlS7Do_9Xc31gaKn6uiat-kMXLxbaoeCWy1FFFHIAXque311WCCuedcu8ceq6y37ApcRSp-pCkS9EZTVINPd0Mn0aouMfi4KFBNNf7R1g3yyzCaa1jjQEHjfL1YjFE-9zVGZdL6VE5c00k2awl0GxkwG1i2A58Goyk5B2AxkyOMV8GwmwGHG1cW1-rZSEi4xu4NEcu0", "-mixolydian"],
+
+        ["4sbkal0egt6a7g0fj7i0r0w0361f3130d1111c0200h6660v0101o3210bST1jBjBjSSST1j1B1j1j1j_j9a000300p24-FHYMJd71j3SCFcLr9iWCP705TANMYD9OcjOe4Z1BatyyzOBvc5DyWUa3wJGGCKOSiLAK4urjjjv0Mk98RlllkllmlSOdapXXaV2CLAsBpJuFBCLQ5s5TAQuWGorl4ttllllllllkQh5rllllllllljTRy1CzXRCG2-zPBtcvgl0B0kwBwl0G1i3o2Q4I2A5w885gawpy14098589s4g0AMkwOMbMigagj02Y5Ubw1j4Vc2q0i5g82I5RobqMmRQkRlSYM6m2OEdgqgQwHG1hk2Dg6Aa2B0Iyyy-WTKpB0aGwmRwIHEIGJIJKLw8200", "-let the drokes discren them"],
+
+        ["4sbk8l0egt7a7g0fj7i0r1w2861f0310d1111c0000h0650v0000o3220bSSST11qq_-111112111111jk-000039yp25YFDzzj7yK1wrEe0FlOUPWLDkXMs2LwRcKfWSdSCjwsyC7BSGXuxQpZD0dshLkOk3PMYhtIMdJQ4IUsoYoog4ZloCpw6BtcwpxP8ap1jdcQO2CgkNWwWaq9aCC1wqaqbAMVpxPePAHtWzeAICyyLfGLKjf1ODc-p_yJ_5kpQBAQklU2oZlmphBmpd55uplt9Y1pn4PVcq2vyqvqCeBg6yiE3hvg6yhE3hGE3h8Q1EG3hhgC756hhpF-4dx1sgn46Tp4wqqvvKMfCXrJKANj0U50bgk0A0k0H1g2KyU50awl0IG1rm2C90qwQxF3i6Ad8qgPfBi5lBJ5R5R556IlwHhn2L5gaw50aaaa8ra0kk0E5gawl12A50ASRlTknk0", "-build system"],
+
+        ["4sbk3l0egtba7g0fj7i0r1w2851f0000d2111c0200h0600v0000o3210b0188EWsu_fjxEMMT0000F999a000Xrrup24PkPVwGU6lwmp-QFxROMZaaGWkM_EEEj7BCf91JlkIMZPCtdkDjakYGVetPHIL9KPID9PwXxQg8W4YY5EXoq0X4AeodP9d1fbk3UEj6yxcaaaaaqvI5kCu31ldHY_vFIvaKDTDxjj703g6wd0qgFxMgPgQow7g6wd5EW0Q1EZcgWbNQtXC22wsCFjfQL1ioU7mCfKp4Bc70VCqd8W84t2qu0kNe2C18H0p600J1C1Pgk0I5tj80VxxEcewzghE8Qkp55578P0pZmib9M058cCGH95AVg2nwap2SgEKEAa92ygEEEAaaa0", "-mechanism design"],
+
+        ["4sbkal0egt6a7g0fj7i0r1w2851f1030d1111c0000h0600v0000o4210b__1111jj1111jmjj111114jj_C060599p25uFzNg6ywd2ss3FxNGZ0qc1F3AkkPQgVgsyz54OWOg9PFRAlVzwEbswo9jz7B34FeCHgvlMll6lBkti7leE8cz8P8O1Iz88SoYO5dzMV719NM2mpDQdj7O6pzOFBl9xyRptdJKIxhBlVaectmLhGIlGHAWqaaYK8cCSCyMaoWgq0Q1E3s6wd0q0Ugd0q0Q1E3g6wd0tiop1hAVd6jAQpejhBVJ6jAQpejhAVd7cy2DcGOGqsGHaFFOGIGCDaG2C1MGhkyJ5iaQl84NbOwlkq0mO5oaGGMlllwGGHwaWX0llm0OIKCyEzq2WKg4ewKQd8O4x8WzG92S-gLA92pqWaWa0lQk0HEFE0", "-outspoken"],
+
+        ["4sbk9l0egt9a7g0fj7i0r1w2311f0330d2111c0000h0060v0000o3220b11jjjh11__11jn111111jhjj_V0001ihp24BFzzFxT0Gpsoer47GEcxc_YhxYHgoaw7aMaCiFGwt3RAlOWNM4szwujHHFIuig5jjV_oeFACoZ1Y0xpDF2FDNhlwsVGo-MepRobcAGIhXoBsCBceepSd0q0Q1E3u6wdgq0XgQ1L3g6MdEo8dEgFzzMI7jvjljn2RQSkRkXEu2FwWqGrXHWoeCGDeh3gBcdjljn3lQSkRkVu88aC3FGFHJKFwWqGgFysC10a0aoE60i5TyaG0QxF3i7N8G1k2E5gawl55541hhhOsyCA750j1yzyaq0M74Qp2oJpJg0", "-roulette"],
+
+        ["4sbk0l0e8t7a7g0fj7i0r1w8151f0000d1111c0420h6060v0000o3210b1jBT00001jBT00001jBT0000ST000000p268FzxMc1jk6j3o5c_2ehwV2hHL3u5dvg7Pbbbb96CGOOGKOkwWJJJJtBdiC77t9If0qosN1r4cMh3nnrq6oUsc1c0omG2GFjb3OGeoW5tGdu8OeP8MKPjjjT8_6XIfjrtCOejlpbQVKnpr3mTgsdNJCe4g9PEA4wMpM-EplruX3dxXIcaq-we232PhM0AQu1Xgookar3Q65joechdCLToXdx-63tMrdf_uU3JS7sI6Mw33PyneUeCMUoo8ek3i781wMWxFzS5d7wsepl1gtdloqoa1wWqGUrXqEaCGKGOSWCGIccz0Mk7jlm6G1wHGqGZtY3kP7HsKKEcNSQFxO2w50GoD9w0wK5B1Ohpek2Emk7943ioG35E5gawl0Iwethm2gEI1phhg", "-ex cathedra"],
+
+        ["4sbk0l0egt6a7g0fj7i0r1w2011f1120d1113c4410h6660v0000o3110b1j1j1jBT1j1jBTBTST1j1j1B049dimrvp2a8FzAdkBjljljl9OddldleGjAaqGqGo6-gFGFGFRkO5dldlc1t8kRkRkU6OKCGCGCGhHFGFAAMVIU9vBh1BlQVtlkgVl-t3Vluj3SlVuCjN67OIK3OHcBC7gCGOkzIMKnlBRlh1OGIiy1evbTatOHaMa7Rz7NxxJKSDbGOI5vCN3BlQVs7BlOep8Vmnnlll1RSQNMMFxMawl0Ig3A2E5gby0swl0G1ow785gawnc3A2E5gb40V0G1k2FyglSdw2sY2xS0X0a4M2f9OsD9WJGZulBlpmllBplm1UJlBplmlBlpmllMb5qIHaGOIGHaOGI1Ni1OIGHaOGIHaGU3BlpmllBplmlBlpCagmlBlpmllBplnaMakMraLI1DFDOD6J8K85g2y8qouC-CNUsbBEjbTkPR4NUkQ-vpSd3Fj3D9OsDaFISfPri6no8-XF5gDvcV5556hawRYp581Nhhhj0UBggE1gayw550aa0Q0Q2G1g2Al8GgkwFEFFEFFE3i3i2SyGOA5oGp2SSM5waqarqaqGbbqWtt441ciIA5lJgcL91nhi3aOgl0F1Bp8dgG1k2E1g2wl50a1M410g7ccd-8kkk0Aaa0Sk9MhKrcq0snTRE7TPB75lSmiZBBBBB443eOgl0F1Bp80", "-octosnack2"],
+
+        ["4sbk8l0egt7a7g0fj7i0r1w4251f0000d1111c0000h0060v0000o3210b11BB11jj_Z11jmjj1114jhjj55029b99p26tFDXk1cfaqgGossiCf0okczjJRFPGnpzFA0u0bX0M8q0Qin4QkQmki4BpDSgrd5BBdmugpd5tBQzMw8K9lU-Gy0FAqXbWo2K0JKGUOOGGDT6hhj8kRpuhhlnv8YCXowap6-hJFwaU2SWHsIGGF8kNMW0Q1E72Q1E3hh39k1E3geSwd0qa8ldwUMX2CMYgFDyY1aqn7e1O8wj3Cyy6AbYL4WkOE3Il0kVUAf4kgFI9osGweNgsyxj7wzghJ8Q4sehE8OF6wzHjbRcftCGGEdKRGuPllk7tF3GuPllk6pd8dPpGGG3F8Q65ffEF5c3xl2I9l2G5kiR0i0Ozb1Awj4L91J0Ogrui3aOgrocA6k391SPbIQTic3t1ilQ1t0j7BxO0k0g3GyyzeJJJrhg0HilgGxl2FFKH0", "-1536"],
+        ["4sbk9l0egt7a7g0fj7i0r1w0521f0100d1111c0000h0060v0000o4310b____11jj1111jkjkBC1117jn9a02rurqp25yFDR1zARcKfcj7xd7gUGPfI74NQsFRA9xx0Wz8HOsFt2Rs1FQjoHAi5c7PuudwoeClwraWaqFeOCCHyIUCDtFOsyP92C6iwAMlwx0lwH1m2I5oaMlwH1m2I5oaMqMlwAMlwH1m2I5oaMlwH1m2I5oaMlwFzTnpnnnnnnnnnnnnnHHIHHHHHHHHHHHHHRRRRRCAkPUwUmNceP5Mi4wXkNXcdCDVKjg6yCAd5tlguEsg2y1OsySA5cikQQQQwjj-FIpFzS6fgwDMwfkzptWC4dtcjyao54cCwzAyN4eELhglF3FbQkpd0rq0TkmQkksMei2A406yw6jg38JEF1lg2Tb2kef2MKD1dsnts", "-cough drop"],
+
+        ["4sbkbl0egt8a7g0fj7i0r0w1651f1000d1311c0000h0060v0002o4210b____2p2p111111jjST111611yh0105rpp24TGq76icaps9xNhgCebz0D75cNVHwqoIMqFGp4B-PhOzhR-n0M6HMdBsMsQdUBjD3zYPCGaehcXKaWCK1XRcecrgFHEQ3jqNiCmGC7oaqgkQwFOYn1ji2CA5fcj271IV8cCA5dd86psJ2oXdF1DpMkMQUm3wEa6JJJJxrpFxoe1wXrrrroiTcBA70M5JJJJJJJJJJJRJJJJJJE9h1jR0eaadyyyChOo004gaj4w6Q7ycE75sg3q3UwzCxK1g2w5t541tvPxpF398V0uhDMn7Yg3rGEUDb1Nv4rttd5fH8CwNsrcx8nmM410mw", "-penalties2"],
+
+        ["4sbkal0egt7a7g0fj7i0r1w1251f0030d1111c0000h0060v0000o4220brrrr--11__11111111111111___Y0399p249FxZ1TQFDTylqoZaYpsssHEdlf59NNmypdoBIY1HKLMrcIwWsLfLwGsH9GIwlcedy2EI8ZYt0XNZpp7A1OeEPNr7ki2ygp5c-AQsdcu4MUj4z8jjMF7RlRffmW3CSllwkNUHHGGGGGCeCKGGGGHctdtllllkOkRRllll0kMe5kaM5E80lwHwmwJ1q2QmQ5ob1kwI1oaM5obgmwG1q2SWGJK5kaAl8Ggk0EHFFHEEEGwaqpd42gk0i0w50dw50aaWqqWaaaGWqg", "-snowman tax"],
+        ["4sbkbl0egt6a7g0fj7i0r1w5451f4000d1111c0000h0600v0000o2210b9999ssss111111111j1111jjih0107rrp24fFFVy9DV0UgoB8Cs1cs67BECCi89q5C27j3896kHKwGE7jlljBlU9jjjjpAVtejCkVepjAGosqfp0IPNQQMUxbaOq37Njf22Cf8qebEEE3Alp56gh0FzFh26yCAd5d8qaqgQpm8aqqgQkQxEFgjVGostTI1EOpO0QpcV0qcCswd7aL8OpOagV4QjA1EFSgFys6Qao4yPqq0U2182WdGDrAcKoYI50bwk0HEGEHEEEsx082zcOgpmi3aOgpmi3aOgriglg5ulhNoEe7x0", "-closing old tab"],
+
+        ["4sbk4l4ect9a7g0fj7i0r1w0161f0300d1111c0100h0060v0000o3310b0000aasK00aaadss1111jjBB049cilrrp27NgFzwxE3g6wd0o8c463xuNRK1o0LqfdnoTI-Y2q0QFES5j3HKqpVlR52oskk0EEE1EeNnIQQwFKF1HFArV6CGKO1FFBXHHGGHWGGIGgMeKOKWhXeyQXdd8aaa0rHCv71aoYZduNUOOhAp6CGKO1FFC2WWWGyyyG1VFffpOEFDIQb3mj71SiBcsi2LGGG7h4gkM_EO8wOa9qzz3t9gYD4cBr8N1aMYOh1z9hhhx9xyi8puobowjjVOWUGGAWaa6quMC9UW2JFVFjzbwHcpj7Qd2ool6i6wcE6z0GcD81g38M0qcKz9OqcD9EP0Qki0q0WGGsCz9FFFIJFOqcCCCDrpjAQpejhAVd6p1kN3aiI3jjj-jL6Bc-el8aO3HHHHHHHHELwEjMMq5jyveSMk6aoD1j0Al8GhkyF5iaAn9Owl2OIGKI5gcLb1m2KHbOwlwOJ6k3a3lBlVuk3bOMpunlBVgcLdEBQjbicxcOeoEV0EEEV9xgoY8", "-it only wants a taste"],
+
+        ["4sbk5l0egtba7g0fj7i0r1w8131f3300d1111c1110h6000v1101o3210b____11jj_-1111111111kjkj_X01ihihp25lFDAGos0j7yKD4acyz8EAMkkk0EEE1hhPsyyw555096yhLFFlQ-ce2fe1IUE3NQBD0E1Jkp45pjlrhjC0O986hOwk0SV5jbzi5sPRwmXzWa4UU2VyMapZ3G7hijGqfex8kMUES4PbR4io_xMuz82hg7Nwv14jj0CyyxciacwiCv1e1w2c27o623snkOUR_V0q0Fz_hu6wd5Woskkks_81AnxEL8FNAt2jLCuBwv6YM38H3hq6wfk3UP1j4Uao7yOMV8IEeiba3AyFClAySwV8IEulhAko18nlYP81CxGOwpgqsw6i6Ha1lhAjjBkp56rrrmdFaUBigF0C7284k0Q0g", "-yes way"],
+
+        ["4sbk9l0egt9a7g0fj7i0r1w2141f0030d1111c0000h0060v0100o3310b__1j1jBB1111jBjB11jj11jj9a0202ryp259FzOC756i6wt426Et0WpUeNh48bXHHt6HKABcKe1-8SW-vlN0q0Q0Aaa0nQk0wWqq5cuu5KEYhM438Mc6hvIfpUsQNFFYtTzHI2PrIgHJAszAM61pJS8OlJVjfxjiUViO4SfjUyCzVAFzEUbr8S-1U70M61wY0HDPzyd0u8j3y6EFapY1j737An1McuhAgVwYyj3B3OelhgeywdB50W8y3HEE7hg64EEEEEE25c3xg9aElgHwkwG5kbkaIBmaElpaUmElxaMlgH0k0I1g2KyyzmaM50ahl0E1iaM50ahm0E1F1g2M50agk0I1g2A50b0k0F1g2M500", "-green tea goo"],
+
+        ["4sbk5l0egtaa7g0fj7i0r1w1621f0400d3111c0000h6060v0000o3310bBBjj1j1j____aa001117_117SZ02SZ01p24kIQ-FIGhorAYyMlFlJjcvm05cwFlFDIgo6Mc3p1gexce0k0OoqhFjL2L8FF-h1npJFFj7h1g2wFzM6wapWaosQlkQkQQl0K1lll2RQRRVqyyP93hnlIVdvrEEGOgQlRrdGCn7JV0aos0pxNg4PV3g6yhjj-UzI3wEA601Uyzz8c2C9Oo40OwQxPgkwE1Alp8cz00puk3A5kPfOrt2EEEHEEEIHwb-tA0OgQxP0kwE99FBD950yF1g2M58a0k0H1i2w50aqaad8G0g8ajlgsd2", "-fickle"],
+
+    ];
+
+
+    var debug = false;
+
+    var d = new Date();
+    var day = d.getDate(); //use getDay for 1-7
+
+    //var dispName = "Daily Chiptune: #15 "+tunes[day][1];
+    var dispName = "Daily Chiptune: #" + day;
+    document.getElementById("tuneName").innerHTML = dispName;
+
+    if (debug) {
+        day = 0;
+    }
+
+    var synth = new beepbox.Synth(tunes[day][0]);
+
+    if (debug) {
+        setTimeout(function() {
+            synth.play();
+        }, 2000);
+    }
+
+    var requestFullscreen = function(ele) {
+        if (ele.requestFullscreen) {
+            ele.requestFullscreen();
+        } else if (ele.webkitRequestFullscreen) {
+            ele.webkitRequestFullscreen();
+        } else if (ele.mozRequestFullScreen) {
+            ele.mozRequestFullScreen();
+        } else if (ele.msRequestFullscreen) {
+            ele.msRequestFullscreen();
+        } else {
+            console.log('Fullscreen API is not supported.');
+        }
+    };
+
+    var exitFullscreen = function() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } else {
+            console.log('Fullscreen API is not supported.');
+        }
+    };
+
+
+    var fsDocButton = document.getElementById('logo');
+    var fsExitDocButton = document.getElementById('logoCover');
+
+    fsDocButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        requestFullscreen(document.documentElement);
+    });
+
+    fsExitDocButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        exitFullscreen();
+    });
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-124684579-8');
+
+    //analytics testing begins 2020-05-01
+    
+    setTimeout(function() {
+        gtag('event', ('Craktro Chiptune 3 Minutes Playing Tune: ' + day), {
+            'event_category': 'Bonus Content',
+            'event_label': 'Easter Egg'
+        });
+    }, 180000); //3 mins
+
+    var passwords = ["passwordDuh!", "babyShark2018", "guruMeditation", "EmpireOfTheSun", "changeme", "iforgeteasy", "ZX-Spectrum", "youWillNeverGuess", "Altair8800", "password123", "myOnlyPassword", "pokerFace1", "franklyMyDear", "beamMeUpScotty", "bartSIMPSON", "badICECREAM", "PowerPamplona", "SpirintClubNitro", "fluffyBunnies2005!", "whatsWithPewDiePie", "thisIsMyPassword", "i-love-bread", "nobodyLovesMe1", "pleaseLetMeIn", "segaOUTRUN", "PASStheSAUCE", "pleaseDontHackME", "downWithTrump!", "myPooSmells", "badWindies", "RIPAbobeFlash", "AlanTuring", "AppleSu*ks!"];
+    var passwordIndex = Math.floor(Math.random() * passwords.length)
+    var password = passwords[passwordIndex];
+
+    //all permissable characters   
+    var chars = "!£$%^&*()_-+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
+    var newPassword = "";
+
+    var bruteForce = "Password hack. Brute force. 512 computing cores operational.<br><br>Attempt on all Friv servers Job ID:" + (Math.random() * 9999999999999999).toString(16) + "<br><br>";
+    var outputPasswords = bruteForce;
+    var stringLength = password.length;
+    var testChar1 = "";
+    var testChar2 = "";
+    var textTimer;
+
+
+    function startHack() {
+        overlay.style.animationPlayState = "running";
+        hackerText = "login as: root<br>root@212.245.68.52's password:<br>**************<br><br>The programs included with the Debian GNU/Linux system are free software; the exact distribution terms for each program are described in the individual files in /usr/share/doc/*/copyright.<br><br>Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law. Last login: " + new Date() + " from 32.186.128.31<br>root@localhost:~# pwHackUtil-v6.8<br><br><br><br>PW Hack 6.8<br>===========</b><br><br>Now connected to:[botnet-512-mostly-my-old-school-ict-lab-machines] via proxyNY1:234.23.46.12 ...then... proxy22:127.7.23.87/255.255.0.0 [IP/Subnet Mask] Level4 4Gb/s freebie-hacked-link.<br><br>SSL target: [all hosts] *.friv.com<br><br>Root gives consent? [y/n]:Y<br><br>Hack sequence auto-initiated.<br>........................................<br>-######################################-<br>........................................<br>-######################################-<br>........................................";
+
+        var outputText;
+        var i = 0;
+
+        //character replace function
+        function setCharAt(str, index, chr) {
+            if (index > str.length - 1) return str;
+            return str.substr(0, index) + chr + str.substr(index + 1);
+        }
+
+        function updateHackerText1() {
+            hackScreen.innerHTML = hackerText.slice(0, i);
+            i = i + 3;
+            if (i > hackerText.length - 5) {
+                clearInterval(myInterval);
+                updateHackerText2();
+            }
+        }
+
+        function updateHackerText2() {
+
+
+            //generate random string of the same length as the password
+            var i;
+            for (i = 0; i < password.length; i++) {
+                newPassword += chars.substr((Math.floor(Math.random() * chars.length)), 1);
+            }
+
+
+            textTimer = setInterval(function() {
+                blastText()
+            }, 1);
+
+
+            hackScreen.innerHTML = newPassword;
+        }
+
+        function blastText() {
+
+
+            //generate random character index
+            randCharIndex = Math.floor(Math.random() * stringLength);
+
+            //get random chars
+            testChar1 = chars.substr((Math.floor(Math.random() * chars.length)), 1); //random character from the full list of characters
+            testChar2 = password.substr(randCharIndex, 1); //random character from the game name
+
+            //replace character if correct
+            if (testChar1 == testChar2) {
+                newPassword = setCharAt(newPassword, randCharIndex, testChar1); //if there is a match, update newPassword with the match
+                outputPasswords += "#-" + newPassword + " [" + Math.random() * 10000000000 + "] REC/V <br>";
+                hackScreen.innerHTML = outputPasswords;
+            }
+
+            //write one random new character in each cycle
+            if (newPassword.substr(randCharIndex, 1) != password.substr(randCharIndex, 1)) {
+                newPassword = setCharAt(newPassword, randCharIndex, testChar1);
+            }
+
+            //when matching string is found, stop operation
+            if (newPassword == password) {
+                clearInterval(textTimer);
+
+
+                setTimeout(function() {
+                    hackScreen.innerHTML = "Password found after " + Math.random() * 100000000000000000 + " attempts.<br><br>Password for Friv server #" + (passwordIndex * 7) + " is: <b>" + newPassword + "</b><br><br>Have a nice day!<br><br><br><br><br><br><br>Auto logging you in...";
+                }, 2000);
+
+                setTimeout(function() {
+                    c.style.display = "block";
+                    hackScreen.style.display = "none";
+                    logo.style.animationPlayState = "running";
+                    bottomShade.style.animationPlayState = "running";
+                    scroller.style.animationPlayState = "running";
+                    tuneName.style.animationPlayState = "running";
+                    synth.play();
+
+                }, 9000);
+            }
+
+            if (outputPasswords.length > 700) {
+                outputPasswords = bruteForce;
+            }
+
+        } // end func
+
+        ///////////////////////////////////////////
+
+        var myInterval = setInterval(updateHackerText1, 10);
+
+    }
+
+</script>
